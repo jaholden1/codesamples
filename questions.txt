@@ -1,0 +1,12 @@
+1.  The <stdint.h> header shall declare sets of integer types having specified widths, and shall define corresponding sets of macros. It shall also define macros that specify limits of integer types corresponding to types defined in other standard headers.
+2.  The "width" of an integer type is the number of bits used to store its value in a pure binary system; the actual type may use more bits than that. Thus, it will set aside memory for that int or uint.
+3.  BYTE: 1 byte, DWORD: 4 bytes, LONG: 4 bytes, WORD: 2 bytes
+4.  The first 2 bytes of the BMP file format are the character "B" then the character "M" in ASCII encoding.
+5.  bfSize is calculated by adding the biSizeImage (total size of image in bytes including pixels and padding) to the size of the BITMAPFILEHEADER and the size of the BITMAPINFOHEADER
+6.  If biHeight is negative, the bitmap is a top-down DIB. Top-down DIBs cannot be compressed.
+7.  biBitCount
+8.  The file (provided by the user in the command-line args) does not exist or cannot be opened.
+9.  1 is the number of elements to read.
+10. 3 bytes of padding. (3 pixels * 3 bytes per pixel = 9 bytes + 3 bytes(to bring to a multiple of four) = 12 bytes)
+11.  File position indicator is essentially the cursor that keeps track of where in the file we are. Fseek moves that cursor.
+12. Determines that we are moving relative to the current position of the file in fseek.
