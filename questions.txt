@@ -1,0 +1,9 @@
+0.  The longest word in the dictionary.
+1.  getrusage() returns resource usage measures for who, which can be RUSAGE_SELF, RUSAGE_CHILDREN, or RUSAGE_THREAD. 
+2.  16 members.
+3.  Passing via reference uses less memory which will increase speed.
+4.  For each string in file, if string contains letters, count number of letters. Ignore & reset count to zero if string is too long to be a word. Repeat the same pattern if a digit is encountered. 
+    If neither is encountered before end of string, it is a word. Add a null terminator & update counter to include. Get usage stats for length of time to check word, check if word is mispelled, and add 
+    to mispelled counter for each mispelled word. Reset letter count and begin again.
+5.  to check for invalid characters such as digits.
+6.  Because the params passed into check & load will not be changed by anything in the function.
