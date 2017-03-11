@@ -1,0 +1,20 @@
+= Trusting `clang`
+
+== Answers
+
+1.  
+I would change:
+if(c =='n'); to:
+if (c =='n' || c=='N');
+
+
+
+2. No amount of source-level verification will protect you from using untrusted code. 
+In Kens example, he uses a stage I self-reproducing program than inserts both Trojan horses into the compiler. 
+The compiler 'learns' the trojan horse, and accepts it as offical C to produce bugged binary, accepting the trojan horse without flags.
+Even if I compiled it myself, I could not verify at the source level that my official C has not been taught to accept bugged binary.
+== Debrief
+
+1. Ken Thompson Article.
+
+2. 1 hour.

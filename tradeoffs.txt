@@ -1,0 +1,21 @@
+= Tradeoffs
+
+== Answers
+
+1a. Binary search instead of linear search. X = binary search. Y = linear search.
+
+1b. Binary Search (X) tends to be faster. Wheareas binary search(X) is in O(log n), linear search (Y) is in O(n).
+
+1c. Binary search(X) requires that its input be sorted, whoch might require more than linear time. Binary search(X) also requires that its input be randomly accessible. Linear Search(Y) does not have to be sorted, which requires less time.
+
+2a. Using a trie instead of a hashtable with separate chaining to store a dictionary of words. X = trie, Y = hashtable
+
+2b. An upside is that a trie(X) allows for constant-time lookups (or at least O(k), where k is the length of a key), whereas a hashtable(Y) with separate chaining theoretically only allows for O(n), where n is the number of keys in the structure.
+
+2c. X(trie) uses a significant amount of memory, even though much of the space (allocated for pointers) tends to be unused, wheareas hashtable(Y) does not use up this space.
+
+== Debrief
+
+1. Quiz examples, Week 5 lecture notes
+
+2. 20 mins.

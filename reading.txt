@@ -1,0 +1,18 @@
+= Reading Someone Else's Code
+
+== Answers
+
+1. returning anything other than 0 signifies an error. Returning the value of CHAR_MAX signifies an error, and gives an idea of what caused the error using $echo $?. Because the function return type is VOID, you can't return NULL anyways.
+
+2. We try to read two via scanf() because we need to account for the character read when we press 'enter'.
+
+3. When you use a string or allocation as a literal, the value is placed in read-only memory and cannot be modified. Such a declaration would allocate data on the stack. If you didn't designate these vars as static, they would be vulnerable to being changed or memory deallocated.
+
+4. Because get_string() stores string on heap, and the library's destructor (causes teardown to be called automatically after main has completed or exit has been called in a program) 
+frees memory on program's exit. Teardown loops through strings if not null and frees memory for each character.
+
+== Debrief
+
+1. cs50 library, linux man, google
+
+2. 25 mins

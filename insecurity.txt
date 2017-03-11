@@ -1,0 +1,75 @@
+= Insecurity
+
+== Answers
+
+1. The format is insecure because anyone could open the file and read the scanline looking for the password. 
+
+2. 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+typedef struct
+{
+    char password[8];
+}
+FILEHEADER;
+
+int main(int argc, char *argv[])
+{
+    // ensure proper usage
+    if (argc != 3)
+    {
+        fprintf(stderr, "Usage: ./insecurity infile outfile\n");
+        return 1;
+    }
+    // remember filenames
+    char *infile = argv[1];
+    char *outfile = argv[2];
+    
+    // open input file 
+    FILE *inptr = fopen(infile, "r");
+    if (inptr == NULL)
+    {
+        fprintf(stderr, "Could not open %s.\n", infile);
+        return 1;
+    }
+
+    // open output file
+    FILE *outptr = fopen(outfile, "w");
+    if (outptr == NULL)
+    {
+        fclose(inptr);
+        fprintf(stderr, "Could not create %s.\n", outfile);
+        return 1;
+    }
+    
+    // find & read to EOF
+    fseek(inptr, sizeof(FILEHEADER), SEEK_END);
+    long fsize = ftell(inptr);
+    fseek(inptr, sizeof(FILEHEADER), SEEK_SET);  
+    char *string = malloc(fsize + 1);
+    fread(string, fsize, 1, inptr);
+
+
+    // write outfile without password
+    fwrite(string, fsize - (sizeof(FILEHEADER)*2), 1, outptr);
+    
+    // close infile
+    fclose(inptr);
+
+    // close outfile
+    fclose(outptr);
+    
+    // free memory
+    free(string);
+    // success
+    return 0;
+}
+
+
+== Debrief
+
+1. Problem set 4 (recover )
+
+2. 1 hour

@@ -1,0 +1,98 @@
+= Z
+
+== Answers
+
+1. 
+/**
+ * check if two ints are equal  
+ */
+function main()
+{
+    // get inputs
+    $x <- get()
+    $y <- get()
+    
+    // if equal, $z will equal 0
+    $z <- add($x, -$y)
+
+    // check for inequalities
+    testGreater($z)
+}  
+/**
+ * check if $z is greater than zero   
+ */
+function testGreater($z)
+{
+    // if not greater than zero, check if less than zero
+    if(not(0 < $z))
+    {
+        testMore($z)
+    }
+
+}
+
+/**
+ * check if $z is less than zero  
+ */
+function testLess($z)
+{
+    // if not less than zero, then it should equal zero. 
+    if(not($z < 0))
+    {
+        print("equal")
+        print("\n")
+    }
+
+}
+}
+
+2. 
+/**
+ * print out integers from input to 0
+ */
+function main()
+{
+    // get input
+    $x <- get()
+     print("$x")
+     print("\n")
+    // check that var is greater than 0
+    subtractVar($x)
+}
+/**
+ * subtracts 1 from $x if greater than zero. Does not print numbers less than zero, and prints 0 otherwise.
+ */
+ function subtractVar($x)
+{
+    // subtract 1 if $x greater than zero and callprintVar()
+    if(0 < $x)
+      {
+        $x <- add($x, -1)
+        printVar($x)
+      }
+      // do nothing if $x is less than zero
+    if($x < 0)
+      {
+
+      }
+      // print 0 if $x is neither less than or greater than 0 (ie. equal)
+      print("0");
+      
+ } 
+ /**
+ * prints new value and calls subtractVar()
+ */
+function printVar($x)
+{
+    print("$x")
+    print("\n")
+    subtractVar($x)
+ }    
+     
+
+
+== Debrief
+
+1. none
+
+2. 30 mins.
