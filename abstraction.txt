@@ -1,0 +1,15 @@
+= Abstraction
+
+== Answers
+
+1. A stack and queue are both abstract data types, where we can implement them in any number of different ways but expect the same properties and operations. Essentially, the layers will work together in the end since each piece will do what it is supposed to (if implemented correctly).
+
+2. 'Say' (or printf() in C) is an abstraction because it is a function or 'layer' that can be implemented in another function. If 'Say' is written correctly, it can be used by another layer without that layer needing to know how 'Say' works. I like to think of an example like a telephone. I don't need to know how a telephone works to use it, I just need to know my part and the rest will work!
+
+3. 'String' is defined in the CS50 library as a shortcut or method to write Char *. I can use either, but it is easier to use string.  
+
+== Debrief
+
+1. Week 1 Lecture notes defining Abstraction.
+
+2. 10 minutes.

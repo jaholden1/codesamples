@@ -1,0 +1,35 @@
+= Bleep
+
+== Answers
+
+1.  The adorable words are censored because the condition is only looking for a string of at least length 4. It will print '$#@!\n' because the condition has been met for those words.
+
+2. I would use the cs50 library 'get_string()' function so that strlen(word) will count the entire length of the string.
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <cs50.h>
+
+int main(void)
+{
+    bool bleep = false;
+    string word = get_string();
+    if (strlen(word) == 4)
+    {
+        bleep = true;
+    }
+    if (bleep)
+    {
+        printf("$#@!\n");
+    }
+    else
+    {
+        printf("%s\n", word);
+    }
+}
+
+== Debrief
+
+1. cs50 library
+
+2. 20 mins

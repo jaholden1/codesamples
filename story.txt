@@ -1,0 +1,19 @@
+= Story to Share
+
+== Answers
+
+1. Medium doesn't use an array because if you wanted to increase the size of an array, we can't always add another element to the end of it, since the memory right after it might be used to store some other variables. We could allocate memory of a bigger size, copy what e had before to the new location, and add elements there, but that requires more and more work as our array grows bigger and we have more to copy.
+
+2. Medium doesn't use linked lists because slower searches and insertions and deletions, and overall in CS there tends to be a theme of tradeoffs between time or space and complexity.
+
+3. Medium doesn't use a trie because trie uses a significant amount of memory, even though much of the space tends to be unused.
+
+4. Medium sometimes think a user has read some post because it's hash output can accidently compare values that were stored from previous inputs.
+The example in bloom uses buckets to describe this. If cat (3,4,10) and dog (1,2,5) have been hashed, and you try to find out if monkey has been hashed, 
+you will get a false positive because monkey takes values (10,2,1) which have been hashed by cat & dog inputs collectively. 
+
+== Debrief
+
+1. Week 5 lecture notes, bloom article.
+
+2. 30 mins

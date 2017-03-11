@@ -1,0 +1,20 @@
+= Restructuring Strings
+
+== Answers
+
+1. Instead of looping through the whole string to count the numbers of characters, you can access the string length by getting the value at the address of the first character s[0].
+
+2. Someone might be searching for the start of a string and start or stop counting from the middle of another string because there is a number inside the string. The value to designate the end or start of a string should not be synonymous with any other values.
+
+3. 
+size_t strlen(const char *s)
+{
+    int n = s[0];
+    return n;
+}
+
+== Debrief
+
+1. Week 2 lecture notes
+
+2. 20 mins
