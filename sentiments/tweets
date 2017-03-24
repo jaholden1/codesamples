@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+from analyzer import Analyzer
+from termcolor import colored
+from helpers import get_user_timeline
+
+def main():
+    """Analyze tweets from handler as negative, positive, or netural."""
+
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets @screen_name")
+
+    # absolute paths to lists
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+    handler = sys.argv[1].strip('@')
+    
+    # return list of most recent tweets posted by screen_name.
+    tweets = get_user_timeline(handler, 50)
+    
+    # instantiate analyzer
+    analyzer = Analyzer(positives, negatives)
+    
+    # check if handler exists or has twittered
+    if not tweets:
+        sys.exit("@screen_name does not exist or has not yet twittered")
+    else:
+        positive, negative, neutral = 0.0, 0.0, 0.0
+        
+        # iterate through tweets, summing and printing score per tweets
+        for i in tweets:
+            score = analyzer.analyze(i)
+            if score > 0.0:
+                positive += 1
+                print(colored("1 I love you, @world", "green"))
+            elif score < 0.0:
+                negative += -1
+                print(colored("-1 I hate you, @world", "red"))
+            else:
+                neutral += 0
+                print(colored("0 hello, @world", "yellow"))
+ 
+            
+if __name__ == "__main__":
+    main()
