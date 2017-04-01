@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<form action="{{ url_for('buy') }}" method="get">
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Symbol</th>
+    </tr>
+    <tr>
+        <td>{{ name }}</td>
+        <td>{{ price }}</td>
+        <td>{{ symbol }}</td>
+    </tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+ {% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('sell') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <select name="stockOptions">
+                    <option name="stock" value="">Select Stock</option>
+                {% for stock in stocks %}
+                  <option name="stock" value={{stock.stock}}>{{stock.stock}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Sell stock</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
