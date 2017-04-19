@@ -1,0 +1,15 @@
+= It's Time Again
+
+== Answers
+
+1. For Copy, the worst case n is the maximum size the container ever achieved, rather than just the current size. For example, if N objects are added to a dictionary, then N-1 are deleted, the dictionary will still be sized for N objects (at least) until another insertion is made.
+
+2. A set would have been a better choice because list Iterations best case scenario is O(n), whereas best case scenario for set x in s is O(1).
+
+3. A Python list knows its own length, so len takes O(1). Since C does not know the length, it has to touch every char until it hits the null terminator to count making it O(n).
+
+== Debrief
+
+1. https://wiki.python.org/moin/TimeComplexity
+
+2. 20 mins

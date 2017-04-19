@@ -1,0 +1,39 @@
+= SQL Sequels
+
+== Answers
+
+1. SELECT title FROM "films" WHERE predecessor_title like'Toy Story%'
+
+2. INSERT INTO "films" (title, year, predecessor_title,predecessor_year, increase) values ("Hannibal","2001","The Silence of the Lambs", "1991","16%")
+
+3. TEXT because values specified as literals enclosed by single or double quotes in SQL statements are assigned the storage class TEXT.
+
+4. 
+CREATE TABLE "films" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "title" TEXT NOT NULL,
+    "year" INTEGER NOT NULL
+);
+CREATE TABLE "sequels" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "film_id" INTEGER NOT NULL,  
+    "title" TEXT NOT NULL,
+    "year" INTEGER NOT NULL,
+    CONSTRAINT FK_film FOREIGN KEY (film_id)
+    REFERENCES films(id)
+);
+CREATE TABLE "increase" (
+    "film_id" INTEGER NOT NULL,
+    "sequel_id" INTEGER NOT NULL,
+    "increase" NUMERIC NOT NULL,
+    CONSTRAINT FK_film FOREIGN KEY (film_id)
+    REFERENCES films(id)
+    CONSTRAINT FK_sequel FOREIGN KEY (sequel_id)
+    REFERENCES sequels(id)
+);
+
+== Debrief
+
+1.  none.
+
+2. 30 mins.

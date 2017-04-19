@@ -1,0 +1,27 @@
+= Downword Slant
+
+== Answers
+
+1. YES
+
+2. YES
+
+3. This is implementation is  not correct. It is simply evaluating that if it is not a downword, it must be an upword. However, words can be neither (like lake) so these words are evaluating as true just because they are not downwords. 
+
+
+4. 
+def downword(word):
+    # convert to lowercase 
+    lword = word.lower();
+    # iterate through length of string
+    for i in range(len(lword) - 1):
+        # if current char is less than char to the right, it is not a downword
+        if lword[i] < lword[i + 1]:
+            return False
+    return True
+
+== Debrief
+
+1. pset 7
+
+2. 35 minss.
