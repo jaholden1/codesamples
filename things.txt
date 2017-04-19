@@ -1,0 +1,26 @@
+= Stranger Things
+
+== Answers
+
+1. Because there was a distributed denial of service (DDoS) attack on Dyn, which is when crooks use a large number of hacked or ill-configured systems to flood a target site with so much junk traffic that it can no longer serve legitimate visitors
+
+2. Because of the broad availability of tools for compromising and leveraging the collective firepower of so-called Internet of Things devices — poorly secured Internet-based security cameras, digital video recorders (DVRs) and Internet routers. 
+While many of these devices allow users to change the default usernames and passwords on a Web-based administration panel that ships with the products, those machines can still be reached via more obscure, less user-friendly communications services called “Telnet” and “SSH.”
+The issue with these particular devices is that a user cannot feasibly change this password. It is hardcoded into the firmware, and the tools necessary to disable it are not present. Even worse, the web interface is not aware that these credentials even exist.
+Malware such as Marai scans the internet for vulnerable internet-connected devices that use the telnet protocol and have weak default logins and passwords.
+
+3. First, because my Destination field in my IP packet points to a network different than my own, it is sent to my default gateway.
+It sets the destination IP address in the IP packet and the MAC address of the default gateway as the destination in the Ethernet Frame, 
+which will make sure our default gateway gets the packet for the requested address.
+Now the gateway has the packet and could send it on its way, but to make sure it will get the response, it first need to replace the packet Source address 
+so the router will place its public IP address in the Source field. Otherwise the destination would try to send the answer to some device with my IP address on their network.
+This is repeated with all the routers until the packet finally arrives at the requested address and an answer is generated.
+The TCP part helps get the answer back. When your router sends that initial packet, it will put a new source port in there.
+The answer packet received by the router will contain my public IP address as it's destination IP address. 
+The router receives that packet and sees that it is for a port it previously remembered was assigned.
+
+== Debrief
+
+1. Articles provided in the questions, google search.
+
+2. 45 mins.

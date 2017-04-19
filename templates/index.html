@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+        <!-- http://getbootstrap.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <!-- http://jquery.com/ -->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <!-- app's own JavaScript -->
+       <!-- <script src="{{ url_for('static', filename='scripts.js') }}"></script>-->
+
+        <title>Cookies</title>
+
+    </head>
+    <body>
+           <form action="{{ url_for('upword') }}" method="post">
+
+
+                <input name="word" id="word" type="text"/>
+
+                <button class="btn btn-default" onClick="validate(document.getElementById('word').value)"  type="submit">Get Quote</button>
+
+    </form>
+<script>
+function validate(number)
+{
+    // replace/delete all spaces and special characters
+    var justNumber = number.replace(/[^A-Z0-9]/ig, "");
+    // get length of number (id value from form)
+    var length = justNumber.length;
+    // test for all numbers match
+    var isnum = /^\d+$/.test(justNumber);
+    // evaluate length gte 10
+    if (length >= 10 && isnum) {
+            return true;
+    }
+    else {
+        return false;
+    }
+}
+</script>
+
+    </body>
+</html>

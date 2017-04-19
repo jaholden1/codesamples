@@ -1,0 +1,62 @@
+= Cookies
+
+== Answers
+
+1. 
+function validate(number)
+{
+    // get length of number (id value from form)
+    var length = number.length;
+    // test for all numbers match
+    var isnum = /^\d+$/.test(number);
+    // evaluate length gte 10
+    if (length >= 10 && isnum) {
+            return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+2. 
+function validate(number)
+{
+    // replace/delete all spaces and special characters
+    var justNumber = number.replace(/[^A-Z0-9]/ig, "");
+    // get length of number (id value from form)
+    var length = justNumber.length;
+    // test for all numbers match
+    var isnum = /^\d+$/.test(justNumber);
+    // evaluate length gte 10
+    if (length >= 10 && isnum) {
+            return true;
+    }
+    else {
+        return false;
+    }
+}
+
+3. The current implementation leaves the site susceptible to SQL-Injection attacks. The params should be identified as:
+db.execute("UPDATE users SET phone = :phone WHERE id = :id ", phone =request.form.get("phone"), id=session["user_id"])
+        request.form.get("phone"), session["user_id"]
+    ))
+    
+    
+There should also be error checking implemented in the event that the query does not succeed, or params are not provided. 
+ if not request.form.get("phone");
+ if not session["user_id"];
+ 
+ The query could be executed as it is written (with my updated suggestions), with a try/catch statement so as to catch query failure. 
+ It could also be assigned a value so that 'if not queryName:' can be evaluated to catch failures.
+ 
+ It seems that since a Session["user_id"] is required, then there should be a login check similar to that used in pset7 finance (@login_required) immediately above def profile():
+ 
+ Lastly, this does not tell us what the route is doing! There should be at least one comment under the def profile() line ( """Update user phone number.""")
+ 
+
+== Debrief
+
+1. none
+
+2. 50 mins

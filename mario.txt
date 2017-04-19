@@ -1,0 +1,20 @@
+= Machine Learning Mario
+
+== Answers
+
+1. A "Stateless" algorithm always returns the same answer when you give it the same inputs. It has no memory. There is no "state" that the algorithm must consult other than the values provided as arguments.
+A stateful app such as autocomplete is one that stores information about what has happened or changed since it started running. Since autocomplete varies based on real searches, region, language, previously searched suggestions, ranked suggestions, freshness (popularity spikes) and more, it's output will vary greatly based on similar inputs. 
+
+2. 
+    a.) PP
+        PP = a pipe two blocks wide and two blocks high in 2x2 clusters.) (A 2x2 cluster with nothing on above it is top of pipe). It also recognizes these will not be floating in the air, but touching solid ground.
+    b.) ^ = a mushroom with a question block.
+
+3.  Data is what gives Google its edge. What makes our final project inferior to googles search engine is that our model is generated from very little data.
+We just don't have as much data you have to train our models as google.
+
+== Debrief
+
+1. https://medium.com/@ageitgey/machine-learning-is-fun-part-2-a26a10b68df3#e432
+
+2. 25 mins
