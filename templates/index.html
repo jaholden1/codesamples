@@ -1,0 +1,56 @@
+{% extends "layout.html" %} {% block title %} CompassionEAT {% endblock %} {% block main %}
+
+<form action="{{ url_for('search') }}" method="post">
+    <fieldset>
+        <div class="input-group add-on">
+            <input class="form-control" placeholder="What would you like veganized?" name="nonveg" id="srch-term" type="text">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<br />
+
+<h3 align="left">Popular Recipes</h3>
+<hr /> 
+
+{% for recipes in ratings %}
+<div class="ratingBox">
+    <table>
+        <tr>
+            <td><img src="static/uploads/{{ recipes.image }}" height="250" style="margin-right:45px" /></td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <form action="{{ url_for('recipe') }}" method="post" id="{{recipes.id}}">
+                                <input type="hidden" name="recipeOptions" value="{{recipes.id}}">
+                                <p align="center"><input type="submit" class="btn btn-default" value="{{recipes.name}}"></p>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><p align="center">{{recipes.comment}}</p></td>
+                    </tr>
+                    <tr>
+                        <td><p align="center">{% if recipes.rating == 1 %}
+                            <img src="static/uploads/cow.png" class="ratings" />
+                            <br /> {% endif %} {% if recipes.rating == 2 %}
+                            <img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" />
+                            <br /> {% endif %} {% if recipes.rating == 3 %}
+                            <img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" />
+                            <br /> {% endif %} {% if recipes.rating == 4 %}
+                            <img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" />
+                            <br /> {% endif %} {% if recipes.rating == 5 %}
+                            <img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" /><img src="static/uploads/cow.png" class="ratings" />
+                            <br /> {% endif %}</p>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>
+{% endfor %} {% endblock %}

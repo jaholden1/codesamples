@@ -1,0 +1,20 @@
+// CompassionEAT //
+
+The navigation bar has different options based on whether the user is logged in or not. If logged in, they have the option to view their cookbook (saved recipes), upload recipes, and rate recipes. 
+Guests will only have the ability to search recipes.
+
+The index page has a search function, and a gallery of the highest rated recipes on the site. The gallery is has interactive links prompting users to explore the site
+beyond their initial search capabilities. I added this because I'm not always entirely sure what I want to look for at first.
+
+The search page has a query for vegan items without recipe ids and one with. This is so that the view can split the results into two sections,
+one for a quick shopping list, and one with interactive links to view recipes.
+
+The add recipe page is dependent on receiving request.form.get("recipeOptions"). The view itself splits the page into two sections, one for 
+entering the recipe name, directions, and once that is put into the database, it displays that info along with an input for the ingredients. 
+The page refreshes each time you submit the ingredientline to the database and displays the new ingredient line for you.
+
+The recipe view has a form that allows users that are signed in to rate & save. Both options are fairly straightforward database inserts.
+If there is no user id saved in the session scope, then the form options are hidden.
+
+The cookbook page displays all saved recipes based on the session["user_id"], and has interactive links to take the user back to their respective recipe pages.
+

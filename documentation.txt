@@ -1,0 +1,25 @@
+// CompassionEAT //
+
+CompassionEAT is a web-based application using Python and SQL for searching, saving, and uploading vegan substitutions for non-vegan recipes.
+You can access CompassionEAT, submitted to '2017/spring/project' using your local web server.
+
+As a vegan I find it extremely difficult to keep my recipes straight because I often use non-vegan recipes and substitute multiple items throughout. Since I don't
+keep track of my substitutions, I can never recreate my recipes! Now I have the ability to search, save, and upload my substitutions.
+
+I created a database compassioneat.db that holds a list of various non-vegan items. When a user searches for a vegan substitution, the nonvegan table is first searched to find a match.
+Once found, it then searches a vegan database to see how many items have that nonvegan foreign key. It then presents the user with both common (store-bought) substitutions, and more detailed recipes.
+The users have the ability to rate the substitution from the recipe screen, leave a comment, and save it to their cookbook for later reference if they so choose to do so. 
+Users are only required to have a login if they wish to save their recipes.
+
+If a user wants to add a recipe, they are first prompted in input the recipe name, directions, servings, and have the option to upload an image. After submitting, they will be prompted to add the ingredients one line at a time.
+Once ingredients have been added and recipe is complete, the recipe is available for any one to search, rate and comment on. The homepage is a slight marketing tool showing the highest rating recipes uploaded.
+
+For testing, non vegan keywords that have vegan items associated are:
+    pork
+    cream cheese
+    yogurt
+    tuna
+    butter
+    bacon
+    ice cream
+
