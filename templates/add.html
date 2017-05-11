@@ -1,0 +1,97 @@
+{% extends "layout.html" %} {% block title %} CompassionEAT {% endblock %} {% block main %}
+<h4 align="left">Add Recipe</h4>
+<hr />
+<h2 align="left">{{recipename}}</h2>
+
+<table>
+    <tr>
+        <td>{% if recipename != "" %}<img src="static/uploads/{{ getimage }}" align="left" onerror="this.src='static/uploads/default.gif';" height="250" style="margin:15px" />{% endif %}</td>
+        <td valign="top">
+            {% if getingredientname != "noingredient" %}
+            <br />{% for item in getrecipe %}
+            <p>{{ item.amount }} {{ item.measurement }} {{ item.state }} {{ item.ingredientname }}</p>
+            {% endfor %}{% endif %}
+        </td>
+    </tr>
+</table>
+<p align="left">{{recipedirections}}</p>
+
+<script type="text/javascript">
+    <!--
+    function formSubmit() {
+        document.getElementById("done").value = "True";
+        document.getElementById("form").submit();
+    }
+    //-->
+</script>
+
+<form action="{{ url_for('add') }}" method="post" id="form" enctype="multipart/form-data">
+    <fieldset>
+        {% if recipename == "" %}
+        <div align="left">
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Recipe Name" type="text" />
+        </div>
+        <br />
+        <div align="left">
+            Directions:
+            <br />
+            <textarea rows="4" cols="50" name="directions"></textarea>
+        </div>
+        <br />
+
+        <div align="left">
+            <input autocomplete="off" autofocus class="form-control" name="servings" placeholder="Servings" type="text" />
+        </div>
+        <br />
+        <div align="left">
+            <select name="categories">
+                <option name="category" value="">Category</option>
+                <option name="category" value="cheese">Cheese</option>
+                <option name="category" value="dairy">Dairy</option>
+                <option name="category" value="meat">Meat</option>
+                <option name="category" value="seafood">Seafood</option>
+                <option name="category" value="eggs">Eggs</option>
+
+            </select>
+
+        </div>
+        <br />
+        <div align="left">
+            <input autocomplete="off" autofocus class="form-control" name="substitution" placeholder="What is this substituting? Beef, Chicken, Pork, ect." type="text" />
+        </div>
+        <br />
+        <div align="left">
+            Recipe Image:
+            <br />
+            <input type="file" name="file">
+            <hr />
+            <input autocomplete="off" autofocus class="form-control" name="ing" value="" type="hidden" />
+            <button class="btn btn-default" type="submit">Add Recipe!</button>
+        </div>
+        {% endif %} {% if recipename != "" %}
+        <hr />
+        <div align="left">
+
+            <input autocomplete="off" autofocus class="form-control" name="ingname" placeholder="Ingredient Name" type="text" />
+            <input autocomplete="off" autofocus class="form-control" name="amount" placeholder="Amount (in decimal format)" type="text" />
+            <input autocomplete="off" autofocus class="form-control" name="measurement" placeholder="Measurement (cup, teaspoon, oz, etc.)" type="text" />
+            <input autocomplete="off" autofocus class="form-control" name="state" placeholder="State (Chopped, diced, fresh, dried, etc.)" type="text" />
+            <button class="btn btn-default" type="submit">Add Ingredient!</button>
+        </div>
+        <div align="left">
+
+            <input autocomplete="off" autofocus class="form-control" name="substitution" value="{{sub}}" type="hidden" />
+            <input autocomplete="off" autofocus class="form-control" name="name" value="{{name}}" type="hidden" />
+            <input autocomplete="off" autofocus class="form-control" name="directions" value="{{directions}}" type="hidden" />
+            <input autocomplete="off" autofocus class="form-control" name="servings" value="{{servings}}" type="hidden" />
+
+            <hr />
+            <input class="btn btn-default" value="Finish Recipe" type="button" onClick="formSubmit()" />
+            <input type="hidden" value="" name="done" id="done" />
+        </div>
+        {% endif %}
+
+    </fieldset>
+</form>
+
+{% endblock %}

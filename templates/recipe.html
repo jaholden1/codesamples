@@ -1,0 +1,49 @@
+{% extends "layout.html" %} {% block title %} CompassionEAT {% endblock %} {% block main %}
+
+<h2 align="left">{{name}}</h2>
+<hr />
+<table>
+    <tr>
+        <td><img src="static/uploads/{{ image }}" align="left" onerror="this.src='static/uploads/default.gif';" height="300px" style="margin:15px" /></td>
+        <td>
+            <h4>Ingredients</h4>{% for items in ingredients %}
+            <p align="left">{{ items.amount}} {{ items.measurement}} {{ items.state}} {{items.name}} </p>
+
+            {% endfor %}</td>
+    </tr>
+</table>
+
+<br />
+
+<p align="left">{{directions}}</p>
+
+<hr />
+{% if session.user_id %}
+<h6 align="left">Rate this substitution:</h6>
+<form action="{{ url_for('rate') }}" method="post">
+    <fieldset>
+        <div align="left">
+            <input type="radio" value="1" name="rating">
+            <input type="radio" value="2" name="rating">
+            <input type="radio" value="3" name="rating">
+            <input type="radio" value="4" name="rating">
+            <input type="radio" value="5" name="rating">
+        </div>
+        <br />
+        <div align="left">
+            <h6>Comment:</h6>
+            <textarea rows="4" cols="50" name="recipeComment"></textarea>
+        </div>
+        <br />
+        <div align="left">
+            <input type="hidden" name="vegid" value="{{vegid}}">
+            <input type="hidden" name="nonvegid" value="{{nonvegid}}">
+            <input type="checkbox" name="save" value="save"> Save to your cook book
+            <br />
+            <hr />
+            <button class="btn btn-default" type="submit">Submit</button>
+        </div>
+    </fieldset>
+</form>
+{% endif %}
+{% endblock %}
