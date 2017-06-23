@@ -1,0 +1,222 @@
+﻿@model BusinessLayer.Contact
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+@{
+    ViewBag.Title = "Index";
+}
+<script>
+    $(document).ready(function () {
+
+        // require that a contact list is selected
+        $("form").submit(function (e) {
+            if (!$(".CONTACT_LIST").is(":checked")) {
+                var str = "Please select a contact method.";
+                $("p").html(str);
+                $("#modal").trigger("click");
+                e.preventDefault();
+            }
+
+            // if contact list 'email' is selected, then email is required
+            if ($('input[name=CONTACT_LIST]:checked').val() == "Email") {
+                if ($("#EMAIL").val() == "") {
+                    var str = "Please enter your Email.";
+                    $("p").html(str);
+                    $("#modal").trigger("click");
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+</script>
+
+<h2>@Session["project"]</h2>
+
+
+@using (Html.BeginForm("Review", "Home", FormMethod.Post))
+{
+    // Collect form information
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Session["topic"]</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FIRST_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.FIRST_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FIRST_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MIDDLE_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.MIDDLE_NAME, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LAST_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.LAST_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LAST_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TITLE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.TITLE, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AGENCY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.AGENCY, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ADDRESS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CITY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.CITY, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CITY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StatesList, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @if (Model.STATE != null)
+                {
+                    @Html.DropDownListFor(model => model.StatesList, new List<SelectListItem>
+       { new SelectListItem{Text=Model.STATE, Value=Model.STATE} }, new { @class = "form-control" })
+                }
+                else
+                {
+                    @Html.DropDownListFor(model => model.StatesList, Model.StatesList, "- Please select a state -", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StatesList, "", new { @class = "text-danger" })
+                }
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ZIP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ZIP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ZIP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DAY_PHONE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.DAY_PHONE, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALT_PHONE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ALT_PHONE, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FAX, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.FAX, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", @id = "EMAIL" } })
+                @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @if (Session["method"].ToString() == "Comment")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.PUBLIC_COMMENT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.PUBLIC_COMMENT, new { htmlAttributes = new { @class = "form-control" } })
+                    <p>By submitting this comment, you will automatically be added to our contact list.</p>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CONTACT_LIST, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @if (Model.CONTACT_LIST == "Email")
+                {
+                    <input type="radio" name="CONTACT_LIST" value="Email" class="CONTACT_LIST" checked="checked" />                    <span>Email</span>
+                    <input type="radio" name="CONTACT_LIST" value="Mail" class="CONTACT_LIST" />                <span>Mail</span>
+                    <input type="radio" name="CONTACT_LIST" value="None" class="CONTACT_LIST" />                <span> None, do not add me to the contact list</span>
+                }
+                else if (Model.CONTACT_LIST == "Mail")
+                {
+                    <input type="radio" name="CONTACT_LIST" value="Email" class="CONTACT_LIST" />                    <span>Email</span>
+                    <input type="radio" name="CONTACT_LIST" value="Mail" class="CONTACT_LIST" checked="checked" />                    <span>Mail</span>
+                    <input type="radio" name="CONTACT_LIST" value="None" class="CONTACT_LIST" />                <span> None, do not add me to the contact list</span>
+                }
+                else if (Model.CONTACT_LIST == "None")
+                {
+                    <input type="radio" name="CONTACT_LIST" value="Email" class="CONTACT_LIST" />                    <span>Email</span>
+                    <input type="radio" name="CONTACT_LIST" value="Mail" class="CONTACT_LIST" />                <span>Mail</span>
+                    <input type="radio" name="CONTACT_LIST" value="None" class="CONTACT_LIST" checked="checked" />                    <span> None, do not add me to the contact list</span>
+                }
+                else
+                {
+                    <input type="radio" name="CONTACT_LIST" value="Email" class="CONTACT_LIST" />                    <span>Email</span>
+                    <input type="radio" name="CONTACT_LIST" value="Mail" class="CONTACT_LIST" />                <span>Mail</span>
+                    <input type="radio" name="CONTACT_LIST" value="None" class="CONTACT_LIST" />                <span> None, do not add me to the contact list</span>
+                }
+
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.DATE_RECEIVED)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<!-- display errors -->
+<!-- Trigger the modal with a hidden button (Triggered via Jquery) -->
+<button type="button" id="modal" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="visibility:hidden">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="margin-left:-25%">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

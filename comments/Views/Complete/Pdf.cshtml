@@ -1,0 +1,84 @@
+﻿@model BusinessLayer.ContactDB
+@using BusinessLayer;
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+</head>
+<!-- Format PDF of comment results -->
+<body>
+    <div>
+        <center>
+            <p>
+                <b>
+                    DNR - Mining, Land & Water Online Public Comment
+                </b>
+            </p>
+        </center>
+        <br /><br />
+        <table>
+            <tr>
+                <td>
+                    @Model.FIRST_NAME @Model.MIDDLE_NAME @Model.LAST_NAME<br />
+                    @if (Model.AGENCY != "")
+                    {
+                        @Model.AGENCY
+                    }
+                    <br />
+                    @if (Model.TITLE != "")
+                    {
+                        @Model.TITLE
+                    }
+                    <br />
+                    @Model.ADDRESS
+                    <br />
+                    @Model.CITY @Model.STATE @Model.ZIP
+                </td>
+                <td>
+                    @if (Model.DAY_PHONE != "")
+                    {
+                        <span>Phone:</span> @Model.DAY_PHONE
+                    }
+                    <br />
+                    @if (Model.ALT_PHONE != "")
+                    {
+                        <span>Alternate Phone:</span>   @Model.ALT_PHONE
+                    }
+                    <br />
+                    @if (Model.FAX != "")
+                    {
+                        <span>Fax:</span>  @Model.FAX
+                    }
+                    <br />
+                    @if (Model.EMAIL != "")
+                    {
+                        <span>Email:</span>   @Model.EMAIL
+                    }
+                </td>
+            </tr>
+        </table>
+
+
+
+        <br /><br />
+
+        @if (Model.CONTACT_LIST == "Email" || Model.CONTACT_LIST == "Mail")
+        {
+            <p><b>Added to contact list: Yes. My preferred method of contact is <i>@Model.CONTACT_LIST.</i></b> </p>
+        }
+        else
+        {
+            <p><b>Added to contact list: No, declined</b></p>
+        }
+        <br /><br />
+        <p>Topic: @Model.PROJECT_NAME  @Model.TOPIC_DESCRIPTION</p>
+        <br /><br />
+        <p><b>Submitted @Model.DATE_RECEIVED</b></p>
+        <p>@Model.PUBLIC_COMMENT</p>
+
+    </div>
+</body>
+</html>

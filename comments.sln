@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comments", "comments\comments.csproj", "{93D04877-F806-4166-AE01-663827F0E1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{F37982C3-688A-4E4F-84FA-61198246C9F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Dev|Any CPU = Dev|Any CPU
+		Prod|Any CPU = Prod|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Test|Any CPU = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Debug|Any CPU.ActiveCfg = Dev|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Debug|Any CPU.Build.0 = Dev|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Dev|Any CPU.ActiveCfg = Dev|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Dev|Any CPU.Build.0 = Dev|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{93D04877-F806-4166-AE01-663827F0E1FF}.Test|Any CPU.Build.0 = Test|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Dev|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Dev|Any CPU.Build.0 = Debug|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Prod|Any CPU.ActiveCfg = Release|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Prod|Any CPU.Build.0 = Release|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{F37982C3-688A-4E4F-84FA-61198246C9F5}.Test|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dnratwtfs:8080/tfs/mlw
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BusinessLayer\\BusinessLayer.csproj
+		SccProjectName1 = BusinessLayer
+		SccLocalPath1 = BusinessLayer
+		SccProjectUniqueName2 = comments\\comments.csproj
+		SccProjectName2 = comments
+		SccLocalPath2 = comments
+	EndGlobalSection
+EndGlobal

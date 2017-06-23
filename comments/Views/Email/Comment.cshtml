@@ -1,0 +1,26 @@
+﻿@model BusinessLayer.ContactDB
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        p {
+            font-family: Arial;
+        }
+    </style>
+</head>
+<!--- JAH 6/17: Literal strings are parsed. Cannot sub in 'env' URL. Must update for production. -->
+<body>
+
+    <p>
+        A new public comment has been received:<br />
+
+        <a href="http://mlw.dnratwnetdev.soa.alaska.gov/comments/Complete/PDF?comment_id=@Model.COMMENT_ID">Download Comment</a>
+    </p>
+</body>
+</html>
+
+
+
+

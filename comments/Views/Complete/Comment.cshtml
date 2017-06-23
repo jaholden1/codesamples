@@ -1,0 +1,63 @@
+﻿@model BusinessLayer.ContactDB
+
+@{
+    ViewBag.Title = "Index";
+}
+<!-- Display user input/confirmation -->
+<h2>Thank you for your input.</h2>
+
+<div>
+    <h4>Please print this page for your records.</h4>
+    <hr />
+
+    <p>
+        @Html.DisplayFor(model => model.FIRST_NAME) @Html.DisplayFor(model => model.MIDDLE_NAME) @Html.DisplayFor(model => model.LAST_NAME)
+    </p>
+    @if (Model.AGENCY != "")
+    {
+        <p>@Html.DisplayFor(model => model.AGENCY)</p>
+    }
+    @if (Model.TITLE != "")
+    {
+        <p> @Html.DisplayFor(model => model.TITLE) </p>
+    }
+
+
+
+    <p>@Html.DisplayFor(model => model.ADDRESS)</p>
+    <p> @Html.DisplayFor(model => model.CITY) @Html.DisplayFor(model => model.STATE) @Html.DisplayFor(model => model.ZIP)</p>
+
+    @if (Model.DAY_PHONE != "")
+    {
+        <p> @Html.DisplayFor(model => model.DAY_PHONE) </p>
+    }
+
+    @if (Model.ALT_PHONE != "")
+    {
+        <p> @Html.DisplayFor(model => model.ALT_PHONE) </p>
+    }
+    @if (Model.FAX != "")
+    {
+        <p> @Html.DisplayFor(model => model.FAX) </p>
+    }
+    @if (Model.EMAIL != "")
+    {
+        <p> @Html.DisplayFor(model => model.EMAIL) </p>
+    }
+
+
+    @if (Model.CONTACT_LIST == "Email" || Model.CONTACT_LIST == "Mail")
+    {
+        <p>Added to contact list: Yes. My preferred method of contact is @Html.DisplayFor(model => model.EMAIL). </p>
+    }
+    else
+    {
+        <p>Added to contact list: No, declined</p>
+    }
+
+    <p>Topic: @Model.PROJECT_NAME @Model.TOPIC_DESCRIPTION</p>
+    <p>Submitted @Html.DisplayFor(model => model.DATE_RECEIVED)</p>
+    <p>@Html.DisplayFor(model => model.PUBLIC_COMMENT)</p>
+
+</div>
+
